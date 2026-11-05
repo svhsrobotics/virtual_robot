@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Drawing of the Gamma Bot (Team 19831). The robot is 75 x 75 units = 18 x 18 inches.
+     The top edge of the drawing is the FRONT of the robot. -->
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Group xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="virtual_robot.robots.classes.GammaBot">
+    <children>
+
+        <!-- Chassis: must be the lowest layer and 75 x 75 -->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="75.0" />
+
+        <!-- Mecanum wheels -->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="20.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="20.0" stroke="BLACK" strokeType="INSIDE" width="10.0" x="65.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="20.0" stroke="BLACK" strokeType="INSIDE" width="10.0" y="55.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="20.0" stroke="BLACK" strokeType="INSIDE" width="10.0" x="65.0" y="55.0" />
+
+        <!-- Odometry pods, drawn where GammaBot.java places them:
+             left and right pods 6.5 in from center (27 units), sideways pod 3 in behind center (12.5 units) -->
+        <Rectangle fill="DODGERBLUE" height="10.0" stroke="BLACK" strokeType="INSIDE" width="4.0" x="8.4" y="32.5" />
+        <Rectangle fill="DODGERBLUE" height="10.0" stroke="BLACK" strokeType="INSIDE" width="4.0" x="62.6" y="32.5" />
+        <Rectangle fill="DODGERBLUE" height="4.0" stroke="BLACK" strokeType="INSIDE" width="10.0" x="32.5" y="48.0" />
+
+        <!-- Intake: roller across the front (color shows the intake motor) and the two servo arms,
+             which reach out the front when lowered -->
+        <Rectangle fx:id="intakeRoller" fill="GREY" height="5.0" stroke="BLACK" strokeType="INSIDE" width="41.0" x="17.0" y="2.0" />
+        <Rectangle fx:id="leftIntakeArm" fill="MAGENTA" height="6.0" stroke="BLACK" strokeType="INSIDE" width="5.0" x="12.0" />
+        <Rectangle fx:id="rightIntakeArm" fill="MAGENTA" height="6.0" stroke="BLACK" strokeType="INSIDE" width="5.0" x="58.0" />
+
+    </children>
+</Group>
