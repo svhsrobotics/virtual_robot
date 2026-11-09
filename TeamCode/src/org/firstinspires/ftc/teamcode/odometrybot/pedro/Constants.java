@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.gamma.pedro;
+package org.firstinspires.ftc.teamcode.odometrybot.pedro;
 
 import com.pedropathing.algorithm.Foresight;
 import com.pedropathing.algorithm.ForesightConfig;
@@ -15,21 +15,21 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 /**
- * Pedro Pathing settings for Gamma's robot.
+ * Pedro Pathing settings for the Mecanum Odometry Bot.
  *
- * SIMULATOR VERSION: these numbers fit the simulator's "Gamma Bot". This is the ONE file that changes
+ * SIMULATOR VERSION: these numbers fit the simulator's "Mecanum Odometry Bot". This is the ONE file that changes
  * when this code moves to the real robot. On the real robot:
  *   - drivetrainConfig: same motor names; directions come from Pedro's Mecanum tuner
  *   - localizerConfig: pod names become the names of the motor ports the pods plug into,
  *     and every number comes from Pedro's Three Wheel tuner
  *   - foresightConfig: every number comes from Pedro's Foresight tuner
- * Everything else (GammaRobot, the TeleOp, the autonomous) should move over unchanged.
+ * Everything else (RobotHardware, the TeleOp, the autonomous) should move over unchanged.
  */
 public class Constants {
 
     /*
      * DRIVETRAIN: which motor is which, and which way each one spins.
-     * Names match Gamma's own Drivetrain class (note the capital B in "right_Back").
+     * Names match Team 19831 Gamma's own Drivetrain class (note the capital B in "right_Back").
      */
     public static MecanumConfig drivetrainConfig = new MecanumConfig(
             c -> {
@@ -50,7 +50,7 @@ public class Constants {
      *
      * Pedro measures pod positions from the center of the robot, in inches:
      *   +X = toward the front, +Y = toward the LEFT side.
-     * (GammaBot.java places the left pod 6.5 in left, the right pod 6.5 in right,
+     * (MecanumOdometryBot.java places the left pod 6.5 in left, the right pod 6.5 in right,
      *  and the sideways pod 3 in behind center.)
      *
      * Ticks to inches: a pod wheel 1.26 in across rolls PI x 1.26 = 3.958 in per turn, and the
@@ -76,7 +76,7 @@ public class Constants {
 
     /*
      * FORESIGHT: how hard Pedro brakes and corrects. These are the simulator author's tuned numbers
-     * for the MecDynamic Bot, which has the same physics as the Gamma Bot.
+     * for the MecDynamic Bot, which has the same physics as the Mecanum Odometry Bot.
      */
     public static ForesightConfig foresightConfig = new ForesightConfig(
             c -> {

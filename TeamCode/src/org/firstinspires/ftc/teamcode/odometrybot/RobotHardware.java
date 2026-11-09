@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.gamma;
+package org.firstinspires.ftc.teamcode.odometrybot;
 
 import com.pedropathing.follower.Follower;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -6,13 +6,13 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.gamma.pedro.Constants;
+import org.firstinspires.ftc.teamcode.odometrybot.pedro.Constants;
 
 /**
- * GammaRobot: the ONE place that knows about Gamma's hardware. Every OpMode (TeleOp, autonomous, tests)
- * creates a GammaRobot and calls init(). If a motor name or a servo position changes, it changes here only.
+ * RobotHardware: the ONE place that knows about the robot's hardware. Every OpMode (TeleOp, autonomous, tests)
+ * creates a RobotHardware and calls init(). If a motor name or a servo position changes, it changes here only.
  *
- * EXAMPLE CODE FOR LEARNING (simulator branch). Hardware names come from Gamma's own code
+ * EXAMPLE CODE FOR LEARNING (simulator). Hardware names come from one of our program's team robots (Team 19831 Gamma's own code)
  * (Haisen's Drivetrain and Intake classes, Nov 2026).
  *
  * What it holds:
@@ -21,7 +21,7 @@ import org.firstinspires.ftc.teamcode.gamma.pedro.Constants;
  *   - the intake: 2 servos that raise and lower the intake bar, and 1 motor that spins the intake wheels
  *   - the launcher: not built yet, so its methods only report on telemetry
  */
-public class GammaRobot {
+public class RobotHardware {
 
     // Intake bar servo positions (placeholders: find the real values on the robot)
     public static final double INTAKE_RAISED = 0.0;

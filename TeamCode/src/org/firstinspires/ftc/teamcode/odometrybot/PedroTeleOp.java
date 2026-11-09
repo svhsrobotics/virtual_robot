@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode.gamma;
+package org.firstinspires.ftc.teamcode.odometrybot;
 
 import com.pedropathing.math.Pose;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
- * Gamma TeleOp, driving through Pedro.
+ * Pedro TeleOp: driving through Pedro.
  *
  * Controls (gamepad 1):
  *   left stick        drive (forward, back, sideways)
@@ -17,10 +17,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Why drive through Pedro in TeleOp? Pedro keeps tracking where the robot is the whole match, so later
  * the drivers can press a button and let Pedro drive to a launch spot.
  */
-@TeleOp(name = "Gamma: TeleOp", group = "Gamma")
-public class GammaTeleOp extends OpMode {
+@TeleOp(name = "Pedro: TeleOp", group = "Mecanum Odometry Bot")
+public class PedroTeleOp extends OpMode {
 
-    GammaRobot robot = new GammaRobot();
+    RobotHardware robot = new RobotHardware();
 
     @Override
     public void init() {
@@ -47,9 +47,9 @@ public class GammaTeleOp extends OpMode {
 
         // 3. Intake wheels
         if (gamepad1.right_trigger > 0.2) {
-            robot.runIntake(GammaRobot.INTAKE_IN_POWER);
+            robot.runIntake(RobotHardware.INTAKE_IN_POWER);
         } else if (gamepad1.left_trigger > 0.2) {
-            robot.runIntake(GammaRobot.INTAKE_OUT_POWER);
+            robot.runIntake(RobotHardware.INTAKE_OUT_POWER);
         } else {
             robot.runIntake(0);
         }

@@ -22,10 +22,11 @@ import virtual_robot.controller.VirtualRobotController;
 import virtual_robot.util.AngleUtils;
 
 /**
- * Gamma Bot: a simulator version of Team 19831 Gamma's BIOBUZZ robot (2026-27).
+ * Mecanum Odometry Bot: a mecanum robot with 3 odometry pods and an intake, for learning Pedro Pathing.
+ * It is modeled on one of our program's BIOBUZZ robots (Team 19831 Gamma, 2026-27).
  *
- * What it has, using the names from Gamma's own code (Haisen's Drivetrain and Intake classes, Nov 2026):
- *   - 4 mecanum drive motors: "left_front", "right_front", "left_back", "right_Back" (capital B, as in Gamma's code)
+ * What it has, using the hardware names from that team's own code (its Drivetrain and Intake classes, Nov 2026):
+ *   - 4 mecanum drive motors: "left_front", "right_front", "left_back", "right_Back" (capital B, as in that team's code)
  *   - 3 odometry pods (unpowered wheels that only count how far they roll):
  *       "pod_left" and "pod_right" roll when the robot drives forward or back,
  *       "pod_strafe" rolls when the robot drives sideways
@@ -43,8 +44,8 @@ import virtual_robot.util.AngleUtils;
  * The driving physics are copied from DynamicMecanumBase, which hard-codes its own motor names. Copying
  * (instead of changing that shared file) keeps this branch easy to update from the original simulator.
  */
-@BotConfig(name = "Gamma Bot", filename = "gamma_bot")
-public class GammaBot extends VirtualBot {
+@BotConfig(name = "Mecanum Odometry Bot", filename = "mecanum_odometry_bot")
+public class MecanumOdometryBot extends VirtualBot {
 
     /*
      * ODOMETRY POD PLACEMENT (placeholders: measure the real robot and update these)
@@ -86,7 +87,7 @@ public class GammaBot extends VirtualBot {
     private volatile double rightArmDown = 0;
     private volatile double intakePower = 0;
 
-    // Shapes from gamma_bot.fxml that change while the robot runs
+    // Shapes from mecanum_odometry_bot.fxml that change while the robot runs
     @FXML private Rectangle leftIntakeArm;
     @FXML private Rectangle rightIntakeArm;
     @FXML private Rectangle intakeRoller;
@@ -101,7 +102,7 @@ public class GammaBot extends VirtualBot {
     private final double wlAverageMeters = 15.0 / VirtualField.INCHES_PER_METER;
     private MatrixF motorTorqueToRobotForces;
 
-    public GammaBot() {
+    public MecanumOdometryBot() {
         super();
     }
 
@@ -261,7 +262,7 @@ public class GammaBot extends VirtualBot {
 
         /*
          * INTAKE: the motor, and the two servos.
-         * The right servo is mounted mirrored, so its "lowered" is position 0. Gamma's code reverses it,
+         * The right servo is mounted mirrored, so its "lowered" is position 0. That team's code reverses it,
          * so if both arms look the same on screen, the code got the direction right.
          */
         intakeMotor.update(millis);

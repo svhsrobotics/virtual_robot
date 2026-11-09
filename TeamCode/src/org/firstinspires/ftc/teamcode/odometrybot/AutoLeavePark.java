@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.gamma;
+package org.firstinspires.ftc.teamcode.odometrybot;
 
 import com.pedropathing.api.PoseFactory;
 import com.pedropathing.math.Pose;
@@ -10,12 +10,12 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import static com.pedropathing.api.Paths.line;
 
 /**
- * Gamma Auto, level 1: LEAVE and PARK.
+ * Autonomous Level 1: LEAVE and PARK.
  *
  * Scoring (manual Table 10-2): LEAVE = 3 points (not touching the wall at the end of AUTO),
  * PARK = 5 points (at least partly in our LOADING ZONE at the end of AUTO).
  * 8 points per robot. If both robots in the alliance do it, that's 16 = the SWARM ranking point.
- * No launcher needed, so this is the first autonomous Gamma can run in competition.
+ * No launcher needed, so this is the first autonomous a team can run in competition.
  *
  * FIELD COORDINATES (Pedro): inches, (0, 0) is the corner on the audience side of the RED wall.
  * x grows toward the blue side, y grows away from the audience. Heading 0 = facing the blue side,
@@ -27,10 +27,10 @@ import static com.pedropathing.api.Paths.line;
  * "mirrorAroundPoint": every pose is spun 180 degrees around the field center (72, 72).
  * So we write the RED poses once and let Pedro work out the blue ones.
  */
-@Autonomous(name = "Gamma: Auto Leave + Park", group = "Gamma")
-public class GammaAutoLeavePark extends LinearOpMode {
+@Autonomous(name = "Pedro: Auto Leave + Park", group = "Mecanum Odometry Bot")
+public class AutoLeavePark extends LinearOpMode {
 
-    GammaRobot robot = new GammaRobot();
+    RobotHardware robot = new RobotHardware();
     ElapsedTime matchTimer = new ElapsedTime();
     boolean blue = false;
     String step = "Waiting for START";

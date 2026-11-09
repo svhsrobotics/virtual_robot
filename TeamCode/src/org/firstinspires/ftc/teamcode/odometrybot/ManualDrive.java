@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.gamma;
+package org.firstinspires.ftc.teamcode.odometrybot;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
  * Manual mecanum driving: read the sticks, work out 4 wheel powers, send them. No path library.
- * EXAMPLE CODE FOR LEARNING (simulator branch), built the same way as FIRST's own sample
- * "BasicOmniOpMode_Linear" (in the SDK's external/samples folder), with Gamma's motor names.
+ * EXAMPLE CODE FOR LEARNING (simulator), built the same way as FIRST's own sample
+ * "BasicOmniOpMode_Linear" (in the SDK's external/samples folder), with the Mecanum Odometry Bot's motor names.
  *
  * Sticks (FIRST's sample layout):
  *   left stick up/down    = drive forward and back   (axial)
@@ -15,10 +15,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  *   right stick left/right = turn                     (yaw)
  *
  * One file on purpose, so the whole idea fits on one screen. In team code the motors live in
- * the shared hardware class (GammaRobot), and a path library like Pedro does this math for you.
+ * the shared hardware class (RobotHardware), and a path library like Pedro does this math for you.
  */
-@TeleOp(name = "Gamma: Manual Drive", group = "Gamma")
-public class GammaManualDrive extends LinearOpMode {
+@TeleOp(name = "Manual Drive", group = "Mecanum Odometry Bot")
+public class ManualDrive extends LinearOpMode {
 
     DcMotor leftFront, rightFront, leftBack, rightBack;
 

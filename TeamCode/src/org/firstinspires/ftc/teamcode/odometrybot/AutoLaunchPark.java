@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.gamma;
+package org.firstinspires.ftc.teamcode.odometrybot;
 
 import com.pedropathing.api.PoseFactory;
 import com.pedropathing.math.Pose;
@@ -11,7 +11,7 @@ import static com.pedropathing.api.Paths.curve;
 import static com.pedropathing.api.Paths.line;
 
 /**
- * Gamma Auto, level 2: LAUNCH the 4 pre-loaded POLLEN, then PARK.
+ * Autonomous Level 2: LAUNCH the 4 pre-loaded POLLEN, then PARK.
  *
  * What it teaches (one new Pedro idea per step):
  *   Step 1  a CURVED path, while the robot turns to FACE the HIVE  (curve + facingPoint)
@@ -28,19 +28,19 @@ import static com.pedropathing.api.Paths.line;
  *
  * FIELD COORDINATES (Pedro): inches, (0, 0) is the corner on the audience side of the RED wall.
  * x grows toward the blue side, y grows away from the audience. Heading 0 = facing the blue side,
- * 90 = facing away from the audience. Same as GammaAutoLeavePark.
+ * 90 = facing away from the audience. Same as AutoLeavePark.
  *
  * RED vs BLUE: write the RED poses once; mirrorAroundPoint(72, 72) spins every pose halfway around
  * the field center to get the BLUE ones (the blue side is the red side turned around).
  */
-@Autonomous(name = "Gamma: Auto Launch + Park", group = "Gamma")
-public class GammaAutoLaunchPark extends LinearOpMode {
+@Autonomous(name = "Pedro: Auto Launch + Park", group = "Mecanum Odometry Bot")
+public class AutoLaunchPark extends LinearOpMode {
 
     // How long to stay still while launching. A guess until the launcher exists:
     // then replace the timer with "until the launcher says it's empty".
     static final double LAUNCH_SECONDS = 2.0;
 
-    GammaRobot robot = new GammaRobot();
+    RobotHardware robot = new RobotHardware();
     ElapsedTime matchTimer = new ElapsedTime();
     boolean blue = false;
     String step = "Waiting for START";

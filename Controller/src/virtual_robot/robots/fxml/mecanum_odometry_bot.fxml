@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Drawing of the Gamma Bot (Team 19831). The robot is 75 x 75 units = 18 x 18 inches.
+<!-- Drawing of the Mecanum Odometry Bot. The robot is 75 x 75 units = 18 x 18 inches.
      The top edge of the drawing is the FRONT of the robot. -->
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Group xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="virtual_robot.robots.classes.GammaBot">
+<Group xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="virtual_robot.robots.classes.MecanumOdometryBot">
     <children>
 
         <!-- Chassis: must be the lowest layer and 75 x 75 -->
@@ -18,7 +18,7 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="20.0" stroke="BLACK" strokeType="INSIDE" width="10.0" y="55.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="20.0" stroke="BLACK" strokeType="INSIDE" width="10.0" x="65.0" y="55.0" />
 
-        <!-- Odometry pods, drawn where GammaBot.java places them:
+        <!-- Odometry pods, drawn where MecanumOdometryBot.java places them:
              left and right pods 6.5 in from center (27 units), sideways pod 3 in behind center (12.5 units) -->
         <Rectangle fill="DODGERBLUE" height="10.0" stroke="BLACK" strokeType="INSIDE" width="4.0" x="8.4" y="32.5" />
         <Rectangle fill="DODGERBLUE" height="10.0" stroke="BLACK" strokeType="INSIDE" width="4.0" x="62.6" y="32.5" />
