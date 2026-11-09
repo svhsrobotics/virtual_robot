@@ -23,10 +23,12 @@ The blue rectangles on the robot drawing are the pods. Their positions are place
 | `GammaTeleOp.java` | Drive through Pedro, intake bar on left bumper, intake wheels on the triggers |
 | `GammaPodTest.java` | Shows the 3 raw pod counts next to Pedro's position. Predict, then drive |
 | `GammaAutoLeavePark.java` | Autonomous level 1: leave the wall and park in the LOADING ZONE (3 + 5 points) |
+| `GammaManualDrive.java` | Manual driving with no path library: read the sticks, mix them into 4 wheel powers, scale down, send. Built like FIRST's own sample (BasicOmniOpMode_Linear) |
+| `GammaAutoLaunchPark.java` | Autonomous level 2: curve to a launch spot while turning to face the HIVE, launch the 4 pre-loaded POLLEN (pretend: no launcher yet), then park |
 
 ## Running the autonomous
 1. Configuration: **Gamma Bot**. OpMode: **Gamma: Auto Leave + Park**.
-2. Place the robot against the RED (left) wall, halfway up the field, facing right (left-click to place, right-click to aim).
+2. Place the robot at the red start spot: against the red (left) wall, on the line halfway up the field (between tile rows 3 and 4), facing right. Left-click right next to the left wall on that line (the simulator stops the robot at the wall), then right-click to the right of the robot to aim it.
 3. Press **INIT**. Press B for red or X for blue on the gamepad.
 4. Press **START**. Watch the telemetry: step name, AUTO time used, and position.
 

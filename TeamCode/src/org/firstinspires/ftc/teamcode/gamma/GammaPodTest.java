@@ -62,7 +62,10 @@ public class GammaPodTest extends OpMode {
         Pose pose = robot.follower.pose();
         telemetry.addLine("--- What Pedro works out from them ---");
         telemetry.addData("Position (in)", "x %.1f   y %.1f", pose.x(), pose.y());
-        telemetry.addData("Heading (deg)", "%.0f", Math.toDegrees(pose.heading()));
+        // Pedro reports heading from 0 to 360. Show -180 to 180 instead, so "a little clockwise" reads -5, not 355.
+        double headingDeg = Math.toDegrees(pose.heading());
+        if (headingDeg > 180) headingDeg -= 360;
+        telemetry.addData("Heading (deg)", "%.0f", headingDeg);
         telemetry.update();
     }
 }

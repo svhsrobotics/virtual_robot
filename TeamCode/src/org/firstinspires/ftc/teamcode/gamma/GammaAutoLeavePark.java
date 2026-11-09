@@ -33,6 +33,7 @@ public class GammaAutoLeavePark extends LinearOpMode {
     GammaRobot robot = new GammaRobot();
     ElapsedTime matchTimer = new ElapsedTime();
     boolean blue = false;
+    String step = "Waiting for START";
 
     @Override
     public void runOpMode() {
@@ -67,9 +68,10 @@ public class GammaAutoLeavePark extends LinearOpMode {
         drivePath("2 Park in the LOADING ZONE", line(offWall, park).constant(offWall), 4.0);
 
         // Done: Pedro holds the robot in place until AUTO ends (it keeps updating).
+        step = "Done: parked, holding position";
         while (opModeIsActive()) {
             robot.follower.update();
-            showStatus("Done: parked, holding position");
+            showStatus();
         }
     }
 
@@ -78,24 +80,28 @@ public class GammaAutoLeavePark extends LinearOpMode {
      * OR when AUTO is stopped. The time limit means a robot that gets blocked can't use up all of AUTO.
      */
     void drivePath(String stepName, Path path, double timeLimitSeconds) {
+        step = stepName;
         robot.follower.follow(path);
         ElapsedTime stepTimer = new ElapsedTime();
         while (opModeIsActive() && robot.follower.isBusy() && stepTimer.seconds() < timeLimitSeconds) {
             robot.follower.update();
-            showStatus(stepName);
+            showStatus();
         }
         if (stepTimer.seconds() >= timeLimitSeconds) {
             telemetry.log().add(stepName + ": TIME LIMIT hit, moving on");
         }
     }
 
-    void showStatus(String stepName) {
+    void showStatus() {
         Pose pose = robot.follower.pose();
         telemetry.addData("Alliance", blue ? "BLUE" : "RED");
-        telemetry.addData("Step", stepName);
+        telemetry.addData("Step", step);
         telemetry.addData("AUTO time used", "%.1f of 30 s", matchTimer.seconds());
         telemetry.addData("Position (in)", "x %.1f   y %.1f", pose.x(), pose.y());
-        telemetry.addData("Heading (deg)", "%.0f", Math.toDegrees(pose.heading()));
+        // Pedro reports heading from 0 to 360. Show -180 to 180 instead, so "a little clockwise" reads -5, not 355.
+        double headingDeg = Math.toDegrees(pose.heading());
+        if (headingDeg > 180) headingDeg -= 360;
+        telemetry.addData("Heading (deg)", "%.0f", headingDeg);
         telemetry.update();
     }
 }
